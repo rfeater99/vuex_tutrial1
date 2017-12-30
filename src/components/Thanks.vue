@@ -8,12 +8,11 @@
 
 <script>
 import HeadComp from '@/components/modules/HeadComp'
-import { mapActions, mapGetters } from 'Vuex'
 
 export default {
   name: 'thanks',
   components: {
-      HeadComp
+    HeadComp
   }
 }
 </script>
