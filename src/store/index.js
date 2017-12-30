@@ -5,7 +5,7 @@ import { SET_STEP_COUNT, UPDATE_IMPRESSION } from './mutation-types'
 
 Vue.use(Vuex)
 
-const Form = {
+const Form2 = {
   namespaced: true,
   state: {
     button: ['確認', '送信'],
@@ -18,7 +18,7 @@ const Form = {
       if (rootState.errorFlag) {
         commit(SET_STEP_COUNT, null, {root: true}) // rootへのアクセス
       }
-      if (rootState.stepCount == 2) {
+      if (rootState.stepCount === 2) {
         router.push('thanks')
       }
     }
@@ -92,7 +92,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    Form,
+    Form2,
     Head,
     Textarea,
     String
