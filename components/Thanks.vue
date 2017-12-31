@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import HeadComp from '@/components/modules/HeadComp'
+import HeadComp from '~/components/modules/HeadComp'
 
 export default {
   name: 'thanks',

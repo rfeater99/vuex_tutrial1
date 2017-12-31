@@ -17,6 +17,9 @@ const Form2 = {
       if (rootState.errorFlag) {
         commit(SET_STEP_COUNT, null, {root: true}) // rootへのアクセス
       }
+      if (rootState.stepCount === 2) {
+        this.app.router.push('thanks')
+      }
     }
   },
   getters: {
