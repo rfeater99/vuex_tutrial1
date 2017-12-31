@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Form2 from '~/src/components/Form2'
+import Form2 from '~/components/Form2'
 export default {
   components: {
     Form2
