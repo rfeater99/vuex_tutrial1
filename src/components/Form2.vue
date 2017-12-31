@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import HeadComp from '@/components/modules/HeadComp'
-import TextareaComp from '@/components/modules/TextareaComp'
-import StringComp from '@/components/modules/StringComp'
+import HeadComp from '~/src/components/modules/HeadComp'
+import TextareaComp from '~/src/components/modules/TextareaComp'
+import StringComp from '~/src/components/modules/StringComp'
 import { mapActions, mapGetters } from 'vuex'
-import Child from '@/components/modules/Child'
-import MyTable from '@/components/modules/MyTable'
+import Child from '~/src/components/modules/Child'
+import MyTable from '~/src/components/modules/MyTable'
 
 export default {
   name: 'form2',

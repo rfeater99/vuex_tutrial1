@@ -7,7 +7,7 @@
 
 <script>
 import { mapGetters } from 'Vuex'
-import { UPDATE_IMPRESSION } from '../../store/mutation-types'
+import { UPDATE_IMPRESSION } from '~/store/mutation-types'
 
 export default {
   name: 'textareaComp',

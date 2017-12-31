@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from '../router'
 import { SET_STEP_COUNT, UPDATE_IMPRESSION } from './mutation-types'
 
 Vue.use(Vuex)
@@ -17,9 +16,6 @@ const Form2 = {
       console.log('buttonAction!')
       if (rootState.errorFlag) {
         commit(SET_STEP_COUNT, null, {root: true}) // rootへのアクセス
-      }
-      if (rootState.stepCount === 2) {
-        router.push('thanks')
       }
     }
   },
@@ -71,7 +67,7 @@ const String = {
   }
 }
 
-export default new Vuex.Store({
+const store = () => new Vuex.Store({
   state: {
     stepCount: 0,
     impression: '',
@@ -98,3 +94,5 @@ export default new Vuex.Store({
     String
   }
 })
+
+export default store
