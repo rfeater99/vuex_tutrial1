@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { SET_STEP_COUNT, UPDATE_IMPRESSION } from './mutation-types'
+import Memo from './memo'
 
 Vue.use(Vuex)
 
@@ -94,7 +95,8 @@ const store = () => new Vuex.Store({
     Form2,
     Head,
     Textarea,
-    String
+    String,
+    Memo
   }
 })
 

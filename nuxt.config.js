@@ -40,7 +40,7 @@ module.exports = {
       '~plugins/element-ui'
     ],
     css: [
-      'element-ui/lib/theme-chalk/index.css'
+      '~static/element-theme/index.css'
     ]
   }
   
