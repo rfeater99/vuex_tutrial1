@@ -1,4 +1,5 @@
 const SET_EDIT_MEMO_DIALOG_VISIBLE = 'setEditMemoDialogVisible'
+const SET_MEMO = 'setMemo'
 
 const EditMemo = {
   namespaced: true,
@@ -15,20 +16,28 @@ const EditMemo = {
   mutations: {
     [SET_EDIT_MEMO_DIALOG_VISIBLE] (state, value) {
       state.editDialogVisible = value
+    },
+    [SET_MEMO] (state, value) {
+      state.memo = value
+      console.log('setMemo!')
+      console.log(value)
     }
   },
   actions: {
     addMemo ({ commit, state, rootState }) {
       commit(SET_EDIT_MEMO_DIALOG_VISIBLE, true)
-      console.log('add! memo!')      
+      console.log('add! memo!')
     },
-    save ({ commit, state, rootState }) {
+    save ({ commit, state, rootState }, memo) {
       commit(SET_EDIT_MEMO_DIALOG_VISIBLE, false)
       console.log('save! memo!')
+      console.log(memo)
+      this.app.router.push('../memos')
     },
     cancel ({ commit, state, rootState }) {
       commit(SET_EDIT_MEMO_DIALOG_VISIBLE, false)
       console.log('canel! edit!')
+      this.app.router.push('../memos')
     }
   },
   getters: {
@@ -36,6 +45,7 @@ const EditMemo = {
       return state.editDialogVisible
     },
     getMemo (state, getters, rootState) {
+      console.log('getMemo!')
       return state.memo
     }
   }

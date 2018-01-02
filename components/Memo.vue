@@ -8,7 +8,7 @@
         <el-col :span="24" class="actions">
           <el-button
             type="primary"
-            @click="addMemo"
+            @click="$router.push('memos/new')"
             icon="el-icon-plus"
             plain round>
             新規作成
@@ -20,30 +20,16 @@
           <memo-list></memo-list>
         </el-col>
       </el-row>
-      <edit-memo></edit-memo>
    </el-main>
   </el-container>
 </template>
 
 <script>
-import EditMemo from '~/components/memos/EditMemo'
 import MemoList from '~/components/memos/MemoList'
 import MyHeader from '~/components/modules/Header'
-import { mapActions } from 'vuex'
 
 export default {
-  data () {
-    return {
-      editDialogVisible: false
-    }
-  },
-  methods: {
-    ...mapActions('Memo/EditMemo', {
-      'addMemo': 'addMemo'
-    })
-  },
   components: {
-    EditMemo,
     MemoList,
     MyHeader
   }
