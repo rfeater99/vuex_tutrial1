@@ -1,7 +1,7 @@
 <template>
   <div>
     <Form2></Form2>
-    <el-button type="default" v-on:click="$router.push('memo')" round>
+    <el-button type="default" v-on:click="$router.push('memos')" round>
       メモ
     </el-button>
   </div>

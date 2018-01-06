@@ -24,10 +24,6 @@ const EditMemo = {
     }
   },
   actions: {
-    addMemo ({ commit, state, rootState }) {
-      commit(SET_EDIT_MEMO_DIALOG_VISIBLE, true)
-      console.log('add! memo!')
-    },
     save ({ commit, state, rootState }, memo) {
       commit(SET_EDIT_MEMO_DIALOG_VISIBLE, false)
       console.log('save! memo!')
@@ -43,10 +39,6 @@ const EditMemo = {
   getters: {
     isEditDialogVisible (state, getters, rootState) {
       return state.editDialogVisible
-    },
-    getMemo (state, getters, rootState) {
-      console.log('getMemo!')
-      return state.memo
     }
   }
 }

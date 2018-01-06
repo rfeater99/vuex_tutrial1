@@ -6,12 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "start": "npm run dev",
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "build": "node build/build.js",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "next generate", 
     "theme": "node ./node_modules/element-theme/bin/element-theme -c ./element-variables.scss -o ./static/element-theme",
     "themew": "node ./node_modules/element-theme/bin/element-theme -c ./element-variables.scss -o ./static/element-theme -w"
   },
