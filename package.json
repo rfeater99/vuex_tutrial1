@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
+    "devapi": "node server_api_dev.js",
     "start": "NODE_ENV=production node server.js",
     "build": "nuxt build",
     "generate": "next generate",
@@ -18,6 +19,8 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
+    "moment": "^2.20.1",
+    "node-uuid": "^1.4.8",
     "nuxt": "^1.0.0-rc11",
     "path": "^0.12.7",
     "vue": "^2.5.2",
