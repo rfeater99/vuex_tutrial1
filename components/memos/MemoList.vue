@@ -38,34 +38,11 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  data () {
-    return {
-      memoList: [
-        {
-          _id: '123abc0001',
-          _rev: 'ake2234aeadfsa',
-          title: 'aaa',
-          content: 'bbb',
-          updateAt: '2017/12/19 10:00'
-        },
-        {
-          _id: '123abc0002',
-          _rev: 'ake2234aeadfsa',
-          title: 'aaa2',
-          content: 'bbb2',
-          updateAt: '2017/12/19 11:00'
-        },
-        {
-          _id: '123abc0003',
-          _rev: 'ake2234aeadfsa',
-          title: 'aaa3',
-          content: 'bbb3',
-          updateAt: '2017/12/20 14:00'
-        }
-      ]
-    }
-  },
+  computed: mapGetters('Memo', {
+    'memoList': 'getMemos'
+  }),
   methods: {
     handleEdit (index, row) {
       console.log(index, row)

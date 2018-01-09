@@ -1,5 +1,5 @@
 exports.list = function (callback) {
-    callback(null, {
+    callback(null, [{
         _id: '12345678-1234-1234-1234-123456789001',
         _rev: 'ake2234aeadfsa',
         title: 'xxx',
@@ -19,7 +19,7 @@ exports.list = function (callback) {
         title: 'xxx3',
         content: 'bbb3',
         updateAt: '2017/12/20 14:00'
-      });
+      }]);
 };
 
 exports.get = function (id, callback) {

@@ -1,5 +1,7 @@
+import axios from '~/plugins/axios.js'
 const SET_EDIT_MEMO_DIALOG_VISIBLE = 'setEditMemoDialogVisible'
 const SET_MEMO = 'setMemo'
+const SET_MEMOS = 'setMemos'
 
 const EditMemo = {
   namespaced: true,
@@ -54,41 +56,28 @@ const MemoList = {
 const Memo = {
   namespaced: true,
   state: {
-    memoList: [
-      {
-        _id: '123abc0001',
-        _rev: 'ake2234aeadfsa',
-        title: 'aaa',
-        content: 'bbb',
-        updateAt: '2017/12/19 10:00'
-      },
-      {
-        _id: '123abc0002',
-        _rev: 'ake2234aeadfsa',
-        title: 'aaa2',
-        content: 'bbb2',
-        updateAt: '2017/12/19 11:00'
-      },
-      {
-        _id: '123abc0003',
-        _rev: 'ake2234aeadfsa',
-        title: 'aaa3',
-        content: 'bbb3',
-        updateAt: '2017/12/20 14:00'
-      }
-    ],
-    memo: {
-      _id: '',
-      _rev: '',
-      title: '',
-      content: '',
-      updateAt: ''
-    },
-    editDialogVisible: false
+    memos: []
   },
-  mutations: {},
-  actions: {},
-  getters: {},
+  mutations: {
+    [SET_MEMOS] (state, memos) {
+      console.log('setMemos!')
+      console.log(memos)
+      state.memos = memos
+    }
+  },
+  actions: {
+    async getMemos ({commit}) {
+      let {data} = await axios.get('memos')
+      console.log('actions.getMemos!')
+      commit(SET_MEMOS, data)
+    }
+  },
+  getters: {
+    getMemos (state, getters, rootState) {
+      console.log('getters.getMemos!')
+      return state.memos
+    }
+  },
   modules: {
     EditMemo,
     MemoList
