@@ -1,6 +1,7 @@
 <template>
   <el-table
     :data="memoList"
+    height="500"
     style="width:100%" stripe>
     <el-table-column
       label="タイトル">
@@ -25,31 +26,31 @@
           size="mini"
           icon="el-icon-edit"
           plain round
-          @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+          @click="$router.push(`memos/${scope.row.id}`)">Edit</el-button>
         <el-button
           type="danger"
           size="mini"
           icon="el-icon-delete"
           plain round
-          @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          @click="deleteMemo(scope.row.id)">Delete</el-button>
       </template>
     </el-table-column>
   </el-table>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 export default {
   computed: mapGetters('Memo', {
     'memoList': 'getMemos'
   }),
   methods: {
-    handleEdit (index, row) {
-      console.log(index, row)
-    },
     handleDelete (index, row) {
       console.log(index, row)
-    }
+    },
+    ...mapActions('Memo/MemoList', {
+      'deleteMemo': 'deleteMemo'
+    })
   }
 }
 </script>

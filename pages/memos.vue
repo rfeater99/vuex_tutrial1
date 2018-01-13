@@ -9,9 +9,6 @@
 import Memo from '~/components/Memo'
 
 export default {
-  fetch ({store}) {
-    store.dispatch('Memo/getMemos')
-  },
   components: {
     'Memo': Memo
   }
