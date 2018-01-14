@@ -9,8 +9,7 @@ const EditMemo = {
   namespaced: true,
   state: {
     memo: {
-      _id: '',
-      _rev: '',
+      id: '',
       title: '',
       content: '',
       updateAt: ''
@@ -34,8 +33,8 @@ const EditMemo = {
     async save ({ commit, state, rootState, getters }) {
       console.log('save! memo!')
       var memo = getters.getMemo
-      if (memo._id === '') {
-        memo._id = uuid.v4()
+      if (memo.id === '') {
+        memo.id = uuid.v4()
       }
       memo.updateAt = moment().utcOffset(9).format('YYYY/MM/DD HH:mm:ss')
       await axios.put('memos', memo)
