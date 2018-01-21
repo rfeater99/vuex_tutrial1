@@ -12,17 +12,26 @@ const EditMemo = {
       id: '',
       title: '',
       content: '',
-      updateAt: ''
+      updateAt: '',
+      _rev: ''
     }
   },
   mutations: {
     [SET_MEMO] (state, value) {
       state.memo = value
       console.log('setMemo!')
-      console.log(value)
     }
   },
   actions: {
+    clearMemo ({ commit }) {
+      commit(SET_MEMO, {
+        id: '',
+        title: '',
+        content: '',
+        updateAt: '',
+        _rev: ''
+      })
+    },
     async getMemo ({commit}, id) {
       let {data} = await axios.get(`memos/${id}`)
       commit(SET_MEMO, data)
@@ -30,7 +39,7 @@ const EditMemo = {
     updateMemo ({ commit, state, rootState }, memo) {
       commit(SET_MEMO, memo)
     },
-    async save ({ commit, state, rootState, getters }) {
+    async save ({ commit, state, rootState, getters, dispatch }) {
       console.log('save! memo!')
       var memo = getters.getMemo
       if (memo.id === '') {
@@ -38,14 +47,11 @@ const EditMemo = {
       }
       memo.updateAt = moment().utcOffset(9).format('YYYY/MM/DD HH:mm:ss')
       await axios.put('memos', memo)
-      console.log(memo)
-      commit(SET_MEMO, {})
-      this.app.router.push('../memos')
+      dispatch('clearMemo')
     },
-    cancel ({ commit, state, rootState }) {
+    cancel ({ commit, state, rootState, dispatch }) {
       console.log('canel! edit!')
-      commit(SET_MEMO, {})
-      this.app.router.push('../memos')
+      dispatch('clearMemo')
     }
   },
   getters: {

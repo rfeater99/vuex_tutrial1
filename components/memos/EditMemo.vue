@@ -3,7 +3,7 @@
     <el-dialog
       title="メモ"
       :visible="true"
-      :before-close="cancel"
+      :before-close="cancelHandler"
       width="80%"
       :show-close="false"
       label-position="top">
@@ -22,8 +22,8 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="cancel">Cancel</el-button>
-        <el-button type="primary" @click="save">Save</el-button>
+        <el-button @click="cancelHandler">Cancel</el-button>
+        <el-button type="primary" @click="saveHandler">Save</el-button>
       </span>
     </el-dialog>
   </div>
@@ -34,9 +34,15 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   methods: {
+    saveHandler () {
+      this.$store.dispatch('Memo/EditMemo/save')
+      this.$router.push('../memos')
+    },
+    cancelHandler () {
+      this.$store.dispatch('Memo/EditMemo/cancel')
+      this.$router.push('../memos')
+    },
     ...mapActions('Memo/EditMemo', {
-      'save': 'save',
-      'cancel': 'cancel',
       'updateMemo': 'updateMemo'
     })
   },
